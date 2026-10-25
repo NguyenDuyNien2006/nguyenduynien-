@@ -100,9 +100,9 @@ INSERT INTO admins (id, username, password_hash, email)
 VALUES (
     1,
     'admin',
-    '$2a$10$B0YjN1Zyi/SrkzNkMf7SselOZB2/DxWL0ncKFcBNaY4ZsnMozKNye',
+    '$2a$10$gM4GQxDFZ8cF8JmXkZgMiu1amCFxGVHr2pxq/MU5H69ExYrzUzY6y',
     'admin@portfolio.local'
-) ON DUPLICATE KEY UPDATE id=id;
+) ON DUPLICATE KEY UPDATE password_hash=VALUES(password_hash);
 
 -- Insert Projects
 INSERT INTO projects (title, description, category, tags, image_url, demo_url, github_url, featured)
